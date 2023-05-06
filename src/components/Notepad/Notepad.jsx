@@ -12,7 +12,7 @@ const Notepad = (props) => {
             <NotepadHeader state={props.state} dispatch={props.dispatch} />
             <div className={styles.wrapper}>
                 <textarea 
-                readOnly={props.state.todos.selectedTask === null ? true : false} 
+                readOnly={props.state.todos.selectedTask === null} 
                 onChange={textareaChangeHandler} value={props.state.todos.selectedTask?.text ?? ""} 
                 className={styles.notepad}
                  />
