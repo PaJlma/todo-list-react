@@ -39,6 +39,7 @@ const reducer = (state=initialState, action) => {
             };
             localStorage.setItem(newTask.id, JSON.stringify(newTask));
             state.tasks.push(newTask);
+            state.selectedTask = state.tasks.find(task => task.id === newTask.id);
             state.inputText = "";
             return state;
 
@@ -46,7 +47,7 @@ const reducer = (state=initialState, action) => {
             if (!window.confirm("Delete All The Tasks?")) return state;
             localStorage.clear();
             state.tasks =  [...localStorage];
-            state.selectedTask = ""
+            state.selectedTask = null;
             return state;
 
         case INPUT_MUTATION_OBSERVER:
@@ -54,7 +55,7 @@ const reducer = (state=initialState, action) => {
             return state;
 
         case TEXTAREA_MUTATION_OBSERVER:
-            if (state.selectedTask === null) return state
+            if (state.selectedTask === null) return state;
             state.selectedTask.text = action.text;
             localStorage.setItem(state.selectedTask.id, JSON.stringify(state.selectedTask));
             return state;
@@ -62,7 +63,6 @@ const reducer = (state=initialState, action) => {
         case SELECT_TASK:
             const selectedTaskID = action.id;
             state.selectedTask = state.tasks.find(task => task.id === +selectedTaskID);
-            console.log(state.selectedTask);
             return state;
 
         default:

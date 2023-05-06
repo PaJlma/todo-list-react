@@ -11,7 +11,7 @@ const Notepad = (props) => {
         <div className={styles.notepad}>
             <NotepadHeader state={props.state} dispatch={props.dispatch} />
             <div className={styles.wrapper}>
-                <textarea onChange={textareaChangeHandler} value={props.state.todos.selectedTask?.text} className={styles.notepad} />
+                <textarea onChange={textareaChangeHandler} value={props.state.todos.selectedTask?.text ?? ""} className={styles.notepad} />
             </div>
         </div>
     );

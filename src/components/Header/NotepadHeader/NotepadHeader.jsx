@@ -17,7 +17,7 @@ const NotepadHeader = (props) => {
                 <Button onClick={addNewTaskClickHandler} image={plusSVG} text="Add New Task" />
                 <Input onChange={inputChangeHandler} value={props.state.todos.inputText} placeholder="Type Task Title Here" />
             </div>
-            <p className={styles.title}>{props.state.todos?.selectedTask?.title}</p>
+            <p className={styles.title}>{props.state.todos?.selectedTask?.title ?? ""}</p>
         </div>
     );
 }
