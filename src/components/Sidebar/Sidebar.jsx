@@ -9,7 +9,7 @@ const Sidebar = (props) => {
     }
 
     const tasks = props.state.todos.tasks
-                .map(task => <Task onClick={selectTaskClickHandler} id={task.id} title={ task.title } time={ task.time } text={ task.text } />)
+                .map(task => <Task onClick={selectTaskClickHandler} id={task.id} title={ task.title } time={ task.time } text={ task.text.slice(0, 100)+'...' } />)
 
     return (
         <div className={styles.sidebar}>
