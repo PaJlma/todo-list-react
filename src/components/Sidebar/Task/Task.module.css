@@ -1,4 +1,5 @@
 .task {
+    position: relative;
     width: 100%;
     min-height: 100px;
     padding: 20px;
@@ -6,10 +7,11 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    border-radius: 10px;
+    border-radius: 10px 0 0 10px;
     cursor: pointer;
     word-break: break-all;
     transition: 200ms;
+    z-index: 1;
 }
 
 .title {
@@ -30,6 +32,32 @@
     font-weight: 300;
 }
 
+.delete {
+    position: absolute;
+    display: none;
+    left: 100%;
+    border: 2px solid #6d0000;
+    border-radius: 0 10px 10px 0;
+    top: 0;
+    width: 30px;
+    height: 100%;
+    transition: 200ms;
+    z-index: -1;
+    background-color: #6d0000;
+    background-image: url("../../../images/trash.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 70%;
+}
+
 .task:hover {
     background-color: #3B404A;
+}
+
+.task:hover > .delete{
+    display: block;
+}
+
+.delete:hover {
+    background-color: unset;
 }

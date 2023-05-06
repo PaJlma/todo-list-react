@@ -7,6 +7,7 @@ const {
     TEXTAREA_MUTATION_OBSERVER, 
     CLEAR_ALL_THE_TASKS,
     SELECT_TASK,
+    DELETE_TASK,
 } = actions;
 
 localStorage[Symbol.iterator] = function*() {
@@ -63,6 +64,12 @@ const reducer = (state=initialState, action) => {
         case SELECT_TASK:
             const selectedTaskID = action.id;
             state.selectedTask = state.tasks.find(task => task.id === +selectedTaskID);
+            return state;
+
+        case DELETE_TASK:
+            if (!window.confirm("Delete this task?")) return state;
+            state.tasks.pop(state.tasks.find(task => task.id === +action.id));
+            localStorage.removeItem(action.id)
             return state;
 
         default:

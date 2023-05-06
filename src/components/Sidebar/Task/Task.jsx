@@ -8,6 +8,7 @@ const Task = (props) => {
                 <p className={ styles.time }>{ props.time }</p>
             </div>
             <p className={ styles.text }>{ props.text }</p>
+            <button onClick={props.deleteFoo} className={styles.delete} />       
         </div>
     );
 }
