@@ -2,9 +2,11 @@ import { combineReducers, createStore } from 'redux';
 import reducer from './reducers/reducer';
 
 const reducers = combineReducers({
-    todoState: reducer,
+    todos: reducer,
 });
 
 const store = createStore(reducers);
+
+window.state = store.getState();
 
 export default store;

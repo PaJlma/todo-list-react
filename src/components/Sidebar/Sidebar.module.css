@@ -1,0 +1,12 @@
+.sidebar {
+    border-right: 2px solid #1E232E;
+    height: 100vh;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.tasks {
+    width: 100%;
+}

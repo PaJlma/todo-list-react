@@ -9,12 +9,12 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 const rerenderIntireTree = (state) => {
   root.render(
     <React.StrictMode>
-      <App state={state} />
+      <App state={state} dispatch={store.dispatch.bind(store)} />
     </React.StrictMode>
   );
 }
 
-rerenderIntireTree();
+rerenderIntireTree(store.getState());
 store.subscribe(() => rerenderIntireTree(store.getState()));
 
 

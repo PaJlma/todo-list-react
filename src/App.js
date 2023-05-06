@@ -1,10 +1,13 @@
-import './App.css';
-import SidebarHeader from './components/Header/SidebarHeader/SidebarHeader';
+import "./App.css";
+import "./reset.css";
+import Sidebar from "./components/Sidebar/Sidebar";
+import Notepad from "./components/Notepad/Notepad";
 
-function App() {
+const App = (props) => {
   return (
     <div className="App">
-      
+      <Sidebar state={props.state} dispatch={props.dispatch} />
+      <Notepad state={props.state} dispatch={props.dispatch} />
     </div>
   );
 }

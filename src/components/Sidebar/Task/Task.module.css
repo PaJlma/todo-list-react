@@ -1,0 +1,35 @@
+.task {
+    width: 100%;
+    min-height: 100px;
+    padding: 20px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    word-break: break-all;
+    transition: 200ms;
+}
+
+.title {
+    font-size: 16px;
+    width: 50%;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.time {
+    font-weight: 300;
+}
+
+.text {
+    font-weight: 300;
+}
+
+.task:hover {
+    background-color: #3B404A;
+}
